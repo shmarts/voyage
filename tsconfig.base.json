@@ -5,9 +5,6 @@
     "strict": true,
     "esModuleInterop": true,
     "noUnusedLocals": true,
-    "resolveJsonModule": true,
-    "paths": {
-      "@voyage/*": ["../*"]
-    }
+    "resolveJsonModule": true
   }
 }
