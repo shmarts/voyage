@@ -1,0 +1,12 @@
+{
+  "name": "voyage",
+  "version": "1.0.0",
+  "repository": "https://github.com/shmarts/voyage.git",
+  "private": "true",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "typescript": "^4.3.4"
+  }
+}
