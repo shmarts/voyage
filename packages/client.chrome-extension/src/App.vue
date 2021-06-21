@@ -8,7 +8,7 @@ import { helloWorld } from '@voyage/lib'
 
 export default defineComponent({
   setup() {
-    helloWorld("Vite")
-  }
+    helloWorld('Vite')
+  },
 })
 </script>
