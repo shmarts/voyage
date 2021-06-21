@@ -2,9 +2,13 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esnext", "dom"],
     "baseUrl": "./",
     "paths": {
       "@voyage/*": ["../*"]
     }
   },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

@@ -5,6 +5,8 @@
     "strict": true,
     "esModuleInterop": true,
     "noUnusedLocals": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
   }
 }
