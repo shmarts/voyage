@@ -3,4 +3,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
   },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 }
