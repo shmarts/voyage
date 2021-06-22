@@ -12,5 +12,5 @@ module.exports = {
     es6: true,
     node: true,
   },
-  ignorePatterns: ['dist', 'node_modules', 'shims-vue.d.ts'],
+  ignorePatterns: ['dist', 'node_modules'],
 }
