@@ -4,6 +4,7 @@
     "outDir": "dist",
     "target": "esnext",
     "module": "esnext",
+    "jsx": "preserve",
     "lib": [
       "esnext",
       "dom"
@@ -13,7 +14,8 @@
       "@voyage/*": [
         "../*"
       ]
-    }
+    },
+    "types": ["@types/chrome", "vite/client"]
   },
   "include": [
     "src/**/*.ts",

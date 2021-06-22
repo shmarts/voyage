@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
+    "build:dev": "vite build --mode developmemnt",
     "build": "vue-tsc --noEmit && vite build"
   },
   "dependencies": {
@@ -16,6 +17,7 @@
     "tailwindcss": "^2.2.2",
     "typescript": "^4.3.4",
     "vite": "^2.3.7",
+    "vite-plugin-chrome-extension": "^0.0.7",
     "vue-tsc": "^0.0.24"
   }
 }
