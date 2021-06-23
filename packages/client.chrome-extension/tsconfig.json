@@ -13,6 +13,9 @@
     "paths": {
       "@voyage/*": [
         "../*"
+      ],
+      "@/*": [
+        "./src/*"
       ]
     },
     "types": ["@types/chrome", "vite/client"]
