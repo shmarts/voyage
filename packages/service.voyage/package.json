@@ -2,7 +2,7 @@
   "name": "@voyage/service.voyage",
   "version": "1.0.0",
   "scripts": {
-    "dev": "tsnd --respawn -r tsconfig-paths/register src/index.ts"
+    "dev": "tsnd --respawn --files -r tsconfig-paths/register src/index.ts"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
