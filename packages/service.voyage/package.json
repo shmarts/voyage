@@ -4,7 +4,13 @@
   "scripts": {
     "dev": "tsnd --respawn -r tsconfig-paths/register src/index.ts"
   },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ws": "^7.5.0"
+  },
   "devDependencies": {
+    "@types/node": "^15.12.4",
+    "@types/ws": "^7.4.5",
     "ts-node-dev": "^1.1.6",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.3.4"
