@@ -1,18 +1,15 @@
 import { createServer } from 'http'
-import WebSocket from 'ws'
-import config from './config'
+import config from '@config'
+import loaders from '@loaders'
 
-const server = createServer()
-const wss = new WebSocket.Server({ server })
+const start = async () => {
+  const httpServer = createServer()
 
-wss.on('connection', (ws) => {
-  ws.on('message', (message) => {
-    console.log('received', message)
+  await loaders({ httpServer })
+
+  httpServer.listen(config.port, () => {
+    console.log(`Listening on ${config.port}`)
   })
+}
 
-  ws.send('you are connected')
-})
-
-server.listen(config.port, () => {
-  console.log(`Listening on ${config.port}`)
-})
+start()
