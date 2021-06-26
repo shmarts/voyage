@@ -4,9 +4,8 @@
     "outDir": "dist",
     "baseUrl": "./",
     "paths": {
-      "@voyage/*": [
-        "../*"
-      ]
+      "@voyage/*": ["../*"],
+      "@*": ["src/*"]
     },
   },
   "include": [
