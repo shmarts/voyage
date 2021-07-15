@@ -5,6 +5,7 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
+    "noUnusedLocals": true,
     "lib": [
       "esnext",
       "dom"
