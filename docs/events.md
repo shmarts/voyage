@@ -1,20 +1,14 @@
 # Web socket events
 
-## _Connect_
+## _On connection_
 
-Client issues a _connect_ request and receives a clientId
-
-### Request
-
-```json
-["connect"]
-```
+Client connects, a clientId is sent
 
 ### Response
 
 ```json
 [
-  "connect",
+  "CONNECT",
   {
     "clientId": <uuid>
   }
@@ -29,7 +23,7 @@ Client issues a _join_ request to a view, all clients in the view receive the re
 
 ```json
 [
-  "join",
+  "JOIN",
   {
     "clientId": <uuid>,
     "viewId": <url>
@@ -41,7 +35,7 @@ Client issues a _join_ request to a view, all clients in the view receive the re
 
 ```json
 [
-  "join",
+  "JOIN",
   {
     "viewId": <url>,
     "clients": [
@@ -62,7 +56,7 @@ Client issues _move_ request at an interval
 
 ```json
 [
-  "move",
+  "MOVE",
   {
     "clientId": <uuid>,
     "viewId": <url>,
@@ -79,12 +73,12 @@ Server issues _update_ response to all clients with view state at an interval
 
 ```json
 [
-  "update",
+  "UPDATE",
   {
     "viewId": <url>,
-    "clients": [
+    "state": [
       {
-        "id": <uuid>,
+        "clientId": <uuid>,
         "position": [<x>, <y>]
       }
     ]
