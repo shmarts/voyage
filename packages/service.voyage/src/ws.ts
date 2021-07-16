@@ -27,12 +27,11 @@ export default class WsService {
 
   init(): void {
     this.wsServer.on('connection', (ws) => {
+      this.handleConnect(ws)
+
       ws.on('message', (m) => {
         const message: MessageRequest = JSON.parse(m.toString())
-
-        if (message[0] === MessageType.Connect) {
-          this.handleMessageConnect(ws)
-        } else if (message[0] === MessageType.Join) {
+        if (message[0] === MessageType.Join) {
           this.handleMessageJoin(message[1])
         } else if (message[0] === MessageType.Move) {
           this.handleMessageMove(message[1])
@@ -41,7 +40,7 @@ export default class WsService {
     })
   }
 
-  handleMessageConnect(ws: WebSocket): void {
+  handleConnect(ws: WebSocket): void {
     const client = new Client(ws)
     this.clients[client.id] = client
     const response: MessageConnectResponse = [MessageType.Connect, { clientId: client.id }]
