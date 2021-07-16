@@ -3,15 +3,15 @@ import WebSocket from 'ws'
 import { MessageResponse } from '@voyage/types'
 
 export default class Client {
+  id: string
+  ws: WebSocket
+  color: string
+
   constructor(ws: WebSocket) {
     this.id = uuid()
     this.ws = ws
     this.color = '@TODO'
   }
-
-  id: string
-  ws: WebSocket
-  color: string
 
   send(payload: MessageResponse): void {
     const p = JSON.stringify(payload)

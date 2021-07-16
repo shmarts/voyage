@@ -7,13 +7,13 @@ type State = {
 }[]
 
 export default class View {
+  id: string
+  state: State
+
   constructor(id: string) {
     this.id = id
     this.state = []
   }
-
-  id: string
-  state: State
 
   clientJoin(client: Client): void {
     this.state.push({ client, position: [0, 0] })
