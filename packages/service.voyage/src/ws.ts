@@ -8,6 +8,7 @@ import {
   MessageMoveRequestPayload,
   MessageRequest,
   MessageType,
+  MessageUpdateResponse,
 } from '@voyage/types'
 
 export default class WsService {
@@ -38,6 +39,10 @@ export default class WsService {
         }
       })
     })
+
+    setInterval(() => {
+      this.broadcastState()
+    }, 100)
   }
 
   handleConnect(ws: WebSocket): void {
@@ -71,5 +76,21 @@ export default class WsService {
     const client = this.clients[payload.clientId]
     const view = this.views[payload.viewId]
     view.clientMove(client, payload.position)
+  }
+
+  broadcastState(): void {
+    Object.values(this.views).forEach((view) => {
+      const response: MessageUpdateResponse = [
+        MessageType.Update,
+        {
+          viewId: view.id,
+          state: view.state.map((s) => {
+            return { clientId: s.client.id, position: s.position }
+          }),
+        },
+      ]
+
+      view.broadcast(response)
+    })
   }
 }

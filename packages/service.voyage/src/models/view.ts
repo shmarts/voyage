@@ -27,4 +27,8 @@ export default class View {
   getClientIndex(client: Client): number {
     return this.state.findIndex(({ client: { id } }) => id === client.id)
   }
+
+  broadcast(message: MessageResponse): void {
+    this.state.forEach((s) => s.client.send(message))
+  }
 }
