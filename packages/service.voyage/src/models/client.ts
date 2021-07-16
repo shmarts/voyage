@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import WebSocket from 'ws'
-import { MessageResponse } from '@types'
+import { MessageResponse } from '@voyage/types'
 
 export default class Client {
   constructor(ws: WebSocket) {

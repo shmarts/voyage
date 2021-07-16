@@ -48,8 +48,8 @@ export type MessageUpdateResponse = [MessageType.Update, MessageUpdateResponsePa
 
 export type MessageUpdateResponsePayload = {
   viewId: string
-  clients: {
-    id: string
+  state: {
+    clientId: string
     position: Position
   }[]
 }

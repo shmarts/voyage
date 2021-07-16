@@ -8,7 +8,7 @@ import {
   MessageMoveRequestPayload,
   MessageRequest,
   MessageType,
-} from '@types'
+} from '@voyage/types'
 
 export default class WsService {
   constructor({ wsServer }: { wsServer: Server }) {

@@ -1,5 +1,5 @@
 import Client from '@models/client'
-import { Position } from '@types'
+import { MessageResponse, Position } from '@voyage/types'
 
 type State = {
   client: Client
