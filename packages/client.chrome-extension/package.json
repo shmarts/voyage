@@ -7,8 +7,7 @@
     "build": "vue-tsc --noEmit && vite build"
   },
   "dependencies": {
-    "vue": "^3.0.5",
-    "vue-global-api": "^0.2.4"
+    "vue": "^3.2.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.3",
@@ -17,6 +16,7 @@
     "postcss": "^8.3.5",
     "tailwindcss": "^2.2.2",
     "typescript": "^4.3.4",
+    "unplugin-auto-import": "^0.5.3",
     "vite": "^2.3.7",
     "vite-plugin-chrome-extension": "^0.0.7",
     "vue-tsc": "^0.0.24"

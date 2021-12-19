@@ -5,6 +5,7 @@
   "singleQuote": true,
   "trailingComma": "all",
   "htmlWhitespaceSensitivity": "ignore",
+  "endOfLine": "auto",
   "overrides": [
     {
       "files": "package*.json",
