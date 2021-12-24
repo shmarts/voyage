@@ -24,6 +24,7 @@ module.exports = {
       files: ['*.*'],
       rules: {
         'no-undef': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
       },
     },
     {

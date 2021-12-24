@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import './index.css'
 
-createApp(App).mount('#app')
+createApp(App).use(createPinia()).mount('#app')
 
 // const MOUNT_EL_ID = 'voyage_el'
 

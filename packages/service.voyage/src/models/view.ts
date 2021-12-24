@@ -19,6 +19,11 @@ export default class View {
     this.state.push({ client, position: [0, 0] })
   }
 
+  clientLeave(client: Client): void {
+    const i = this.getClientIndex(client)
+    this.state.splice(i, 1)
+  }
+
   clientMove(client: Client, position: Position): void {
     const i = this.getClientIndex(client)
     this.state[i].position = position

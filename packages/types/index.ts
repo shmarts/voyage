@@ -1,13 +1,20 @@
 export type Position = [number, number]
 
+export type ViewState = { clientId: string; position: Position }[]
+
 export enum MessageType {
   Connect = 'CONNECT',
   Join = 'JOIN',
+  Leave = 'LEAVE',
   Move = 'MOVE',
   Update = 'UPDATE',
 }
 
-export type MessageRequest = MessageConnectRequest | MessageJoinRequest | MessageMoveRequest
+export type MessageRequest =
+  | MessageConnectRequest
+  | MessageJoinRequest
+  | MessageLeaveRequest
+  | MessageMoveRequest
 
 export type MessageResponse = MessageConnectResponse | MessageJoinResponse | MessageUpdateResponse
 
@@ -36,6 +43,13 @@ export type MessageJoinResponsePayload = {
   }[]
 }
 
+export type MessageLeaveRequest = [MessageType.Leave, MessageLeaveRequestPayload]
+
+export type MessageLeaveRequestPayload = {
+  clientId: string
+  viewId: string
+}
+
 export type MessageMoveRequest = [MessageType.Move, MessageMoveRequestPayload]
 
 export type MessageMoveRequestPayload = {
@@ -48,8 +62,5 @@ export type MessageUpdateResponse = [MessageType.Update, MessageUpdateResponsePa
 
 export type MessageUpdateResponsePayload = {
   viewId: string
-  state: {
-    clientId: string
-    position: Position
-  }[]
+  state: ViewState
 }

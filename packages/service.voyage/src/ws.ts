@@ -5,10 +5,12 @@ import {
   MessageConnectResponse,
   MessageJoinRequestPayload,
   MessageJoinResponse,
+  MessageLeaveRequestPayload,
   MessageMoveRequestPayload,
   MessageRequest,
   MessageType,
   MessageUpdateResponse,
+  ViewState,
 } from '@voyage/types'
 
 export default class WsService {
@@ -72,6 +74,12 @@ export default class WsService {
     client.send(response)
   }
 
+  handleMessageLeave(payload: MessageLeaveRequestPayload): void {
+    const client = this.clients[payload.clientId]
+    const view = this.views[payload.viewId]
+    view.clientLeave(client)
+  }
+
   handleMessageMove(payload: MessageMoveRequestPayload): void {
     const client = this.clients[payload.clientId]
     const view = this.views[payload.viewId]
@@ -84,9 +92,10 @@ export default class WsService {
         MessageType.Update,
         {
           viewId: view.id,
-          state: view.state.map((s) => {
-            return { clientId: s.client.id, position: s.position }
-          }),
+          state: view.state.reduce<ViewState>((state, curr) => {
+            if (curr.client.ws.readyState === WebSocket.CLOSED) return state
+            return [...state, { clientId: curr.client.id, position: curr.position }]
+          }, []),
         },
       ]
 
