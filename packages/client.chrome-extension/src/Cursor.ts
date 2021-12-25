@@ -4,9 +4,9 @@ export default class Cursor {
   clientId: string
   ctx: CanvasRenderingContext2D
   x: number
+  velX: number
   y: number
-  dx: number
-  dy: number
+  velY: number
 
   constructor({
     clientId,
@@ -20,14 +20,21 @@ export default class Cursor {
     this.clientId = clientId
     this.ctx = ctx
     this.x = position[0]
+    this.velX = 0
     this.y = position[1]
-    this.dx = 1
-    this.dy = 1
+    this.velY = 0
   }
 
-  move(position: Position): void {
-    this.x = position[0]
-    this.y = position[1]
+  move(position: Position, timeDelta: number): void {
+    this.velX = this.x - position[0]
+    if (position[0] !== this.x) {
+      this.x -= this.velX * timeDelta
+    }
+
+    this.velY = this.y - position[1]
+    if (position[0] !== this.y) {
+      this.y -= this.velY * timeDelta
+    }
   }
 
   draw(color = 'red'): void {

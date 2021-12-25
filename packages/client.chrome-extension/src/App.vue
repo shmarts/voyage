@@ -8,7 +8,6 @@
       :class="{ 'bg-red-500': client.clientId === store.clientId }"
     >
       <p>{{ client }}</p>
-      <p>{{ cursors.find((c) => c.clientId === client.clientId) }}</p>
     </div>
   </div>
 
@@ -69,13 +68,17 @@ onMounted(() => {
   if (!canvas.value) return
   const ctx = canvas.value.getContext('2d')!
 
-  const update = () => {
+  let then = 0
+  const update = (time?: number) => {
     ctx.clearRect(0, 0, canvas.value!.width, canvas.value!.height)
 
+    const timeInSeconds = time! * 0.001
+    const deltaTimeInSeconds = timeInSeconds - then
+    then = timeInSeconds
     for (const cursor of cursors.value) {
       const client = store.filteredViewState.find((s) => s.clientId === cursor.clientId)
       if (!client) continue
-      cursor.move(client.position)
+      cursor.move(client.position, deltaTimeInSeconds * 10)
       cursor.draw()
     }
 
