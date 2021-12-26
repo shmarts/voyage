@@ -15,7 +15,7 @@ createApp(App).use(createPinia()).mount('#app')
 // mountEl.setAttribute('id', MOUNT_EL_ID)
 // document.body.appendChild(mountEl)
 
-// const vm = createApp(App).mount(mountEl)
+// const vm = createApp(App).use(createPinia()).mount(mountEl)
 
 // chrome.runtime.onMessage.addListener((message) => {
 //   if (message.toggleVisible) {

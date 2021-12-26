@@ -1,7 +1,7 @@
 <template>
   <canvas ref="canvas" class="fixed inset-0 z-50 pointer-events-none" />
 
-  <div class="fixed top-0 bg-white">
+  <div class="fixed top-0 right-0 bg-white">
     <div
       v-for="client in store.viewState"
       :key="client.clientId"
@@ -28,6 +28,7 @@ import { useStore } from '@/store'
 import useUrl from '@/hooks/useUrl'
 import usePosition from '@/hooks/usePosition'
 import useCanvas from '@/hooks/useCanvas'
+import { getRandomColor } from '@/colors'
 
 const store = useStore()
 
@@ -54,6 +55,7 @@ watch(
     } else {
       const cursor = new Cursor({
         clientId: store.filteredViewState[store.filteredViewState.length - 1].clientId,
+        color: getRandomColor(),
         ctx: canvas.value!.getContext('2d')!,
         position: [0, 0],
       })

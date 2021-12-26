@@ -40,8 +40,7 @@ Client issues a _join_ request to a view, all clients in the view receive the re
     "viewId": <url>,
     "clients": [
       {
-        "id": <uuid>,
-        "color": <hex>
+        "id": <uuid>
       }
     ]
   }

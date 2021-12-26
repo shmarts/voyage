@@ -39,7 +39,6 @@ export type MessageJoinResponsePayload = {
   viewId: string
   clients: {
     id: string
-    color: string
   }[]
 }
 
@@ -63,4 +62,12 @@ export type MessageUpdateResponse = [MessageType.Update, MessageUpdateResponsePa
 export type MessageUpdateResponsePayload = {
   viewId: string
   state: ViewState
+}
+
+export enum Color {
+  pink = 'pink',
+  green = 'green',
+  blue = 'blue',
+  orange = 'orange',
+  red = 'red',
 }

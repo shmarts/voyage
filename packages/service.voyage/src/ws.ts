@@ -68,7 +68,7 @@ export default class WsService {
       MessageType.Join,
       {
         viewId: view.id,
-        clients: view.state.map(({ client: { id, color } }) => ({ id, color })),
+        clients: view.state.map(({ client: { id } }) => ({ id })),
       },
     ]
     client.send(response)
