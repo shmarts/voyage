@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "repository": "https://github.com/shmarts/voyage.git",
   "private": "true",
-  "scripts": {
-    "watch": "chokidar '**/*.ts' '**/*.vue' -c 'yarn workspace @voyage/client.chrome-extension build:dev'"
-  },
   "workspaces": [
     "packages/*"
   ],

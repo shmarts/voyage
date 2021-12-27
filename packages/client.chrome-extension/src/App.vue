@@ -1,24 +1,13 @@
 <template>
-  <canvas ref="canvas" class="fixed inset-0 z-50 pointer-events-none" />
-
-  <div class="fixed top-0 right-0 bg-white">
+  <canvas ref="canvas" style="position: fixed; inset: 0px; z-index: 50; pointer-events: none" />
+  <div v-if="isDev" style="position: fixed; top: 0; right: 0; z-index: 9999">
     <div
       v-for="client in store.viewState"
       :key="client.clientId"
-      :class="{ 'bg-red-500': client.clientId === store.clientId }"
+      :style="{ backgroundColor: client.clientId === store.clientId ? 'red' : 'white' }"
     >
-      <p>{{ client }}</p>
+      {{ client }}
     </div>
-  </div>
-
-  <div class="p-10">
-    <p v-for="i in 20" :key="i" class="mb-8">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate corporis alias neque
-      eveniet quia eos officia veritatis voluptatibus quaerat ducimus laborum perferendis dicta
-      maxime, deleniti sunt! Amet praesentium quia quibusdam labore quas unde sed ipsa, nihil est
-      eaque iure odio totam laudantium voluptatum iusto repellendus earum! In officia odio
-      consectetur illo, minima labore.
-    </p>
   </div>
 </template>
 
@@ -29,6 +18,8 @@ import useUrl from '@/hooks/useUrl'
 import usePosition from '@/hooks/usePosition'
 import useCanvas from '@/hooks/useCanvas'
 import { getRandomColor } from '@/colors'
+
+const isDev = import.meta.env.MODE === 'development'
 
 const store = useStore()
 
