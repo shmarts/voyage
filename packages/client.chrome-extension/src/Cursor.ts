@@ -63,8 +63,4 @@ export default class Cursor {
     this.ctx.shadowOffsetX = 1
     this.ctx.shadowOffsetY = 2
   }
-
-  animate(): void {
-    this.draw()
-  }
 }
