@@ -17,7 +17,7 @@ document.body.appendChild(mountEl)
 
 const vm = app.mount(mountEl)
 
-chrome.runtime.onMessage.addListener((message) => {
+chrome?.runtime?.onMessage.addListener((message) => {
   if (message.toggleVisible) {
     ;(vm as any).visible = !(vm as any).visible
   }

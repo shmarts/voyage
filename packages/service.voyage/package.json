@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "tsnd --respawn --files -r tsconfig-paths/register src/index.ts",
-    "build": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./dist/index.js",
+    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js",
     "test": "jest"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
+    "esbuild": "^0.14.8",
     "uuid": "^8.3.2",
     "ws": "^7.5.0"
   },

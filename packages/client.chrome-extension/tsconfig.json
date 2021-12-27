@@ -12,14 +12,12 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@voyage/*": [
-        "../*"
-      ],
+      "@voyage/types": ["../types/src"],
       "@/*": [
         "./src/*"
       ]
     },
-    "types": ["@types/chrome", "vite/client"]
+    "types": ["vite/client"]
   },
   "include": [
     "src/**/*.ts",
