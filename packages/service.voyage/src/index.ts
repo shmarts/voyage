@@ -1,6 +1,6 @@
 import { createServer } from 'http'
-import config from '@config'
-import loaders from '@loaders'
+import config from '@/config'
+import loaders from '@/loaders'
 
 const start = async () => {
   const httpServer = createServer()

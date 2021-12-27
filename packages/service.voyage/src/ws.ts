@@ -1,6 +1,6 @@
 import WebSocket, { Server } from 'ws'
-import Client from '@models/client'
-import View from '@models/view'
+import Client from '@/models/client'
+import View from '@/models/view'
 import {
   MessageConnectResponse,
   MessageJoinRequestPayload,

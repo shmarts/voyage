@@ -1,4 +1,4 @@
-import WsService from '@ws'
+import WsService from '@/ws'
 import { Server as HttpServer } from 'http'
 import { Server as WsServer } from 'ws'
 
