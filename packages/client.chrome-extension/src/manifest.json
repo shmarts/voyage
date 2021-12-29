@@ -3,7 +3,6 @@
   "name": "voyage",
   "version": "1.0.0",
   "description": "browse the web together :)",
-  "host_permissions": ["<all_urls>"],
   "icons": {
     "16": "/assets/images/icon16.png",
     "48": "/assets/images/icon48.png",
