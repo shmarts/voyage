@@ -47,6 +47,7 @@ export const useStore = defineStore('store', {
     },
 
     send(message: MessageRequest) {
+      if (this.ws?.readyState !== WebSocket.OPEN) return
       this.ws?.send(JSON.stringify(message))
     },
 
