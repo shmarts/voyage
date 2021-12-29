@@ -1,0 +1,14 @@
+name: Push to GCR
+on: [push]
+jobs:
+  build-and-push-to-gcr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: google-github-actions/setup-gcloud@master
+      - uses: RafikFarhad/push-to-gcr-github-action@v4
+        with:
+          dockerfile: './dockerfiles/service.voyage.dockerfile'
+          gcloud_service_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
+          project_id: voyage-336518
+          image_name: service.voyage
