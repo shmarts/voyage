@@ -1,5 +1,11 @@
 name: Push to GCR
-on: [push]
+push:
+  branches: [main]
+  paths:
+    - 'packages/service.voyage/**'
+    - 'packages/types/**'
+    - 'dockerfiles/service.voyage.dockerfile'
+    - '.github/workflows/service.voyage-deploy.yml'
 jobs:
   build-and-push-to-gcr:
     runs-on: ubuntu-latest
