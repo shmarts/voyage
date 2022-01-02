@@ -42,10 +42,10 @@ export default class Cursor {
     }
   }
 
-  draw(): void {
+  draw(yOffset: number): void {
     const color = colors[this.color]
     const x = (n: number) => `${this.x + n}`
-    const y = (n: number) => `${this.y + n}`
+    const y = (n: number) => `${this.y + n - yOffset}`
     const path = new Path2D(
       `M${x(9)} ${y(23)}
       L${x(0)} ${y(0)}

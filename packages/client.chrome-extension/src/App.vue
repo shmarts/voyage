@@ -9,6 +9,7 @@
       {{ client }}
     </div>
   </div>
+  <div v-for="i in 200" :key="i" style="height: 200px">hi {{ i }}</div>
 </template>
 
 <script setup lang="ts">
@@ -72,7 +73,7 @@ onMounted(() => {
       const client = store.filteredViewState.find((s) => s.clientId === cursor.clientId)
       if (!client) continue
       cursor.move(client.position, deltaTimeInSeconds * 10)
-      cursor.draw()
+      cursor.draw(window.scrollY)
     }
 
     requestAnimationFrame(update)
