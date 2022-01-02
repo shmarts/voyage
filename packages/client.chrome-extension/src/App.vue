@@ -1,5 +1,8 @@
 <template>
-  <canvas ref="canvas" style="position: fixed; inset: 0px; z-index: 50; pointer-events: none" />
+  <canvas
+    ref="canvas"
+    style="position: fixed; inset: 0px; z-index: 2147483647; pointer-events: none"
+  />
   <div v-if="isDev" style="position: fixed; top: 0; right: 0; z-index: 9999">
     <div
       v-for="client in store.viewState"

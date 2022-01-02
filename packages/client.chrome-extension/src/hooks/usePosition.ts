@@ -5,7 +5,7 @@ export default (): { position: Ref<Position> } => {
   const position = ref<Position>([0, 0])
 
   const handler = (event: MouseEvent) => {
-    position.value = [event.pageX, event.pageY]
+    position.value = [event.pageX / window.innerWidth, event.pageY]
   }
 
   window.addEventListener('mousemove', handler)
