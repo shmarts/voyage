@@ -12,7 +12,6 @@
       {{ client }}
     </div>
   </div>
-  <div v-for="i in 200" :key="i" style="height: 200px">hi {{ i }}</div>
 </template>
 
 <script setup lang="ts">
